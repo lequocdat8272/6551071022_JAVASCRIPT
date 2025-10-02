@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Tính tổng n + n/2 + n/4 + ...</title>
+</head>
+<body>
+<script>
+    var n = parseInt(prompt("Nhập số nguyên dương n: "));
+    var tong = 0;
+
+    while (n > 0) {
+        tong += n;
+        n = Math.floor(n / 2);
+    }
+
+    alert("Tổng là: " + tong);
+</script>
+</body>
+</html>
