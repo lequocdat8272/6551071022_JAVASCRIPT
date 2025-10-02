@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>So le</title>
+</head>
+<body>
+    <script>
+    var soNguyen;
+    soNguyen = prompt("Nhap so nguyen: ")
+    function sNT(soNguyen) {
+
+        var tmp = 1;
+        for (var i=2; i<soNguyen; i++){
+            if (soNguyen%i===0) {
+              tmp=0
+              break;
+            }
+            else break;
+        }
+        if (tmp===1) alert(soNguyen + " la so nguyen to");
+        else alert(soNguyen + " khong phai so nguyen to");
+    }
+    sNT(soNguyen);
+    </script>
+</body>
+</html>
