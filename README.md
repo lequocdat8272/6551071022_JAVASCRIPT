@@ -10,3 +10,4 @@ changelog:
 10h30: Bài 7
 10h50: Bài 8
 11h05: Bài 9
+11h15: Bài 10
