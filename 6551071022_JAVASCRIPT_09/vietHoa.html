@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Viết hoa chữ cái đầu</title>
+</head>
+<body>
+<script>
+    function vietHoaChuCaiDau(chuoi) {
+        return chuoi
+            .split(" ")
+            .map(function(chu) {
+                if (chu.length > 0) {
+                    return chu[0].toUpperCase() + chu.slice(1);
+                } else {
+                    return chu;
+                }
+            })
+            .join(" ");
+    }
+
+    var input = prompt("Nhập chuỗi: ");
+    var output = vietHoaChuCaiDau(input);
+    alert("Kết quả: " + output);
+</script>
+</body>
+</html>
