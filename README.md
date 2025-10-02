@@ -8,3 +8,4 @@ changelog:
 9h45: Bài 5
 10h20: Bài 6
 10h30: Bài 7
+10h50: Bài 8
