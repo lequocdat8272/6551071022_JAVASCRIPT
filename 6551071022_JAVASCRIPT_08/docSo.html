@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Đọc số có 2 chữ số</title>
+</head>
+<body>
+<script>
+    function docSo(n) {
+        var hangChuc = Math.floor(n / 10);
+        var hangDonVi = n % 10;
+
+        var chuSo = ["không", "một", "hai", "ba", "bốn", "năm", "sáu", "bảy", "tám", "chín"];
+        var ketQua = "";
+
+        if (hangChuc === 1) {
+            ketQua += "mười";
+        } else {
+            ketQua += chuSo[hangChuc] + " mươi";
+        }
+
+        if (hangDonVi !== 0) {
+            if (hangDonVi === 1 && hangChuc > 1) {
+                ketQua += " mốt";
+            } else if (hangDonVi === 5 && hangChuc > 0) {
+                ketQua += " lăm";
+            } else {
+                ketQua += " " + chuSo[hangDonVi];
+            }
+        }
+
+        return ketQua;
+    }
+
+    var so = parseInt(prompt("Nhập số nguyên có 2 chữ số:"));
+    if (so >= 10 && so <= 99) {
+        alert("Cách đọc: " + docSo(so));
+    } else {
+        alert("Vui lòng nhập số nguyên có 2 chữ số!");
+    }
+</script>
+</body>
+</html>
