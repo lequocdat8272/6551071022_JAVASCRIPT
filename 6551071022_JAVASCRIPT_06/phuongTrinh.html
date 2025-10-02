@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Giải phương trình bậc 2</title>
+  <script>
+    function giaiPhuongTrinhBac2() {
+      var sa = prompt("Nhập a:");
+      if (sa === null) return;
+      var sb = prompt("Nhập b:");
+      if (sb === null) return;
+      var sc = prompt("Nhập c:");
+      if (sc === null) return;
+
+      var a = parseFloat(sa);
+      var b = parseFloat(sb);
+      var c = parseFloat(sc);
+
+      if (a === 0) {
+        if (b === 0) {
+          if (c === 0) {
+            alert("Phương trình vô số nghiệm.");
+          } else {
+            alert("Phương trình vô nghiệm.");
+          }
+        } else {
+          var x = -c / b;
+          alert("Phương trình bậc nhất, nghiệm x = " + x);
+        }
+      } else {
+        var delta = b * b - 4 * a * c;
+        if (delta > 0) {
+          x1 = (-b + Math.sqrt(delta)) / (2 * a);
+          x2 = (-b - Math.sqrt(delta)) / (2 * a);
+          alert("Hai nghiệm phân biệt:\n" +
+                "x₁ = " + x1 + "\n" +
+                "x₂ = " + x2);
+        } else if (delta === 0) {
+          var x = -b / (2 * a);
+          alert("Nghiệm kép: x = " + x);
+        } else {
+          var real = -b / (2 * a);
+          var imag = Math.sqrt(-delta) / (2 * a);
+          alert("Hai nghiệm phức:\n" +
+                "x₁ = " + real + " + " + imag + "i\n" +
+                "x₂ = " + real + " - " + imag + "i");
+        }
+      }
+    }
+    giaiPhuongTrinhBac2()
+  </script>
+</head>
+</body>
+</html>
