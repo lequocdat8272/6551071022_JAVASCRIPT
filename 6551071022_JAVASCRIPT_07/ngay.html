@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Tìm ngày kế tiếp</title>
+</head>
+<body>
+<script>
+    var ngay = parseInt(prompt("Nhập ngày:"));
+    var thang = parseInt(prompt("Nhập tháng:"));
+    var nam = parseInt(prompt("Nhập năm:"));
+
+    var date = new Date(nam, thang - 1, ngay);
+
+    date.setDate(date.getDate() + 1);
+
+    var ngayMoi = date.getDate();
+    var thangMoi = date.getMonth() + 1;
+    var namMoi = date.getFullYear();
+
+    console.log("Ngày kế tiếp là: " + ngayMoi + "/" + thangMoi + "/" + namMoi);
+</script>
+</body>
+</html>
