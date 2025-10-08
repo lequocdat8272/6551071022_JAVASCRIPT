@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Thời gian</title>
+</head>
+<body>
+    <script>
+        var bayGio = new Date();
+
+        var ngay = bayGio.getDate();
+        var thang = bayGio.getMonth() + 1;
+        var nam = bayGio.getFullYear();
+
+        var gio = bayGio.getHours();
+        var phut = bayGio.getMinutes();
+        var giay = bayGio.getSeconds();
+
+        var chuoiKetQua = `Giờ: ${gio}:${phut}:${giay}\nNgày: ${ngay}/${thang}/${nam}`;
+
+        alert(chuoiKetQua);
+    </script>
+</body>
+</html>
