@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>User</title>
+</head>
+<body>
+    <div id="ket-qua"></div>
+
+    <script>
+        var u = {
+            Name: "Max",
+            Age: 20
+        };
+
+        var noiInKetQua = document.getElementById('ket-qua');
+
+        noiInKetQua.innerHTML += `
+            <h3>a) Thông tin ban đầu:</h3>
+            <pre>${JSON.stringify(u, null, 2)}</pre>
+        `;
+
+        u.Surname = "Lee";
+        noiInKetQua.innerHTML += `
+            <h3>b) Sau khi thêm thuộc tính 'Surname':</h3>
+            <pre>${JSON.stringify(u, null, 2)}</pre>
+        `;
+
+        u.Age = 30;
+        noiInKetQua.innerHTML += `
+            <h3>c) Sau khi thay đổi giá trị 'Age':</h3>
+            <pre>${JSON.stringify(u, null, 2)}</pre>
+        `;
+    </script>
+</body>
+</html>
