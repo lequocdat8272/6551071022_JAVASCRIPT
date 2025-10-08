@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Nhị phân sang Thập phân</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Chuyển đổi Nhị phân sang Thập phân</h1>
+        <p>Số nhị phân: <strong id="nhi-phan"></strong></p>
+        <p>Kết quả ở hệ thập phân:</p>
+        
+        <div id="ket-qua"></div>
+    </div>
+
+    <script>
+        function nhiPhanSangThapPhan(chuoiNhiPhan) {
+            let soThapPhan = 0;
+
+            for (let i = 0; i < chuoiNhiPhan.length; i++) {
+                let digit = parseInt(chuoiNhiPhan[i]);
+                if (digit === 1) {
+                    soThapPhan += Math.pow(2, i);
+                }
+            }
+            return soThapPhan;
+        }
+        const soNhiPhan = "11011011";
+
+        const soThapPhan = nhiPhanSangThapPhan(soNhiPhan);
+
+        const noiInNhiPhan = document.getElementById('nhi-phan');
+        const noiInKetQua = document.getElementById('ket-qua');
+
+        noiInNhiPhan.textContent = soNhiPhan;
+        noiInKetQua.textContent = soThapPhan;
+
+    </script>
+</body>
+</html>
