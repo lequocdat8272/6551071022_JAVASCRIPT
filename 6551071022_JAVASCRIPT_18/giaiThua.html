@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Tính Giai Thừa</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Giai thừa (n!)</h1>
+        <p>Tính giai thừa của số: <strong id="so-n"></strong></p>
+        <p>Kết quả:</p>
+        
+        <div id="ket-qua"></div>
+    </div>
+
+    <script>
+        function tinhGiaiThua(n) {
+            if (n < 0 || n !== Math.floor(n)) {
+                return "Không hợp lệ. Vui lòng nhập một số nguyên không âm.";
+            }
+
+            if (n === 0 || n === 1) {
+                return 1;
+            }
+
+            var ketQua = 1;
+            for (var i = 2; i <= n; i++) {
+                ketQua *= i;
+            }
+
+            return ketQua;
+        }
+
+        var n = 7;
+
+        var giaiThua = tinhGiaiThua(n);
+
+        var noiInSoN = document.getElementById('so-n');
+        var noiInKetQua = document.getElementById('ket-qua');
+
+        noiInSoN.textContent = n;
+        noiInKetQua.textContent = `${n}! = ${giaiThua}`;
+    </script>
+</body>
+</html>
