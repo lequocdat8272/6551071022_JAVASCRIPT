@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Tính Lãi suất</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Tính Lãi suất</h1>
+        <div id="thong-tin-dau-vao"></div>
+        <div id="ket-qua"></div>
+    </div>
+
+    <script>
+        function tinhLaiSuat(soTienGoc, laiSuatHangNam, soNam) {
+            var r = laiSuatHangNam / 100;
+
+            var tongSoTien = soTienGoc * Math.pow(1 + r, soNam);
+            
+            var tongLai = tongSoTien - soTienGoc;
+
+            return {
+                tongSoTien: tongSoTien,
+                tongLai: tongLai
+            };
+        }
+
+        var soTienGoc = 50000000;
+        var laiSuatHangNam = 6.5;
+        var soNam = 10;
+
+        var ketQua = tinhLaiSuat(soTienGoc, laiSuatHangNam, soNam);
+
+        var noiInThongTin = document.getElementById('thong-tin-dau-vao');
+        var noiInKetQua = document.getElementById('ket-qua');
+
+        noiInThongTin.innerHTML = `
+            <h3>Thông tin đầu vào:</h3>
+            <p>Số tiền gốc: <strong>${soTienGoc}</strong>vnđ</p>
+            <p>Lãi suất năm: ${laiSuatHangNam}%</p>
+            <p>Số năm đầu tư: ${soNam} năm</p>
+        `;
+
+        noiInKetQua.innerHTML = `
+            <h3>Kết quả sau ${soNam} năm:</h3>
+            <p>Tổng số tiền nhận được: <strong>${ketQua.tongSoTien}</strong>vnđ</p>
+            <p>Tổng số tiền lãi: <strong>${ketQua.tongLai}</strong>vnđ</p>
+        `;
+
+    </script>
+</body>
+</html>
