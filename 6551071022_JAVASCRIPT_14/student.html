@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Object Student</title>
+</head>
+<body>
+    <div id="info"></div>
+
+    <script>
+        var student = {
+            Name: "Lê Quốc Đạt",
+            NumberID: "6551071022",
+            Gender: "Nam"
+        };
+
+        var infoDiv = document.getElementById('info');
+        infoDiv.innerHTML = `
+            <p><strong>Tên:</strong> ${student.Name}</p>
+            <p><strong>Mã số sinh viên:</strong> ${student.NumberID}</p>
+            <p><strong>Giới tính:</strong> ${student.Gender}</p>
+        `;
+    </script>
+</body>
+</html>
