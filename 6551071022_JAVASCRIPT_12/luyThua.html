@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Tính Lũy Thừa b^n</title>
+</head>
+<body>
+    <script>
+        function tinhLuyThua(b, n) {
+            var kq = 1;
+
+            for (var i = 0; i < n; i++) {
+                kq = kq * b;
+            }
+
+            return kq;
+        }
+
+        var b = 5;
+        var n = 3;
+
+        var kq = tinhLuyThua(b, n);
+
+        console.log("Ta có: " + b + "^" + n + " = " + kq);
+
+        alert("Ta có: " + b + "^" + n + " = " + kq);
+
+        document.write("Ta có: " + b + "^" + n + " = " + kq);
+    </script>
+
+</body>
+</html>
