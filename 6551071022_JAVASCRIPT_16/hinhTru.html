@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Hình Trụ</title>
+</head>
+<body>
+    <h1>Hình Trụ</h1>
+    <div id="ket-qua"></div>
+
+    <script>
+        var hinhTru = {
+            radius: 10,
+            height: 15
+        };
+
+        var noiInKetQua = document.getElementById('ket-qua');
+
+        var theTich = Math.PI * Math.pow(hinhTru.radius, 2) * hinhTru.height;
+        
+        var ketQuaPhanA = `
+            <div class="result">
+                <h3>a) Tính thể tích ban đầu</h3>
+                <p>Với bán kính (radius) = ${hinhTru.radius} và chiều cao (height) = ${hinhTru.height}:</p>
+                <p><strong>Thể tích là: ${theTich}</strong></p>
+            </div>
+        `;
+        noiInKetQua.innerHTML += ketQuaPhanA;
+
+        hinhTru.height = 30;
+
+        var dienTichToanPhan = 2 * Math.PI * hinhTru.radius * (hinhTru.radius + hinhTru.height);
+        
+        var ketQuaPhanB = `
+            <div class="result">
+                <h3>b) Cập nhật và tính diện tích toàn phần</h3>
+                <p>Cập nhật chiều cao (height) thành = ${hinhTru.height}.</p>
+                <p><strong>Diện tích toàn phần lúc này là: ${dienTichToanPhan}</strong></p>
+            </div>
+        `;
+        noiInKetQua.innerHTML += ketQuaPhanB;
+        
+        console.log("Đối tượng HinhTru sau khi cập nhật:", hinhTru);
+    </script>
+</body>
+</html>
