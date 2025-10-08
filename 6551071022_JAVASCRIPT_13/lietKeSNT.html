@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Liệt kê Số Nguyên Tố</title>
+</head>
+<body>
+    <script>
+        function lietKeSoNguyenTo() {
+            var danhSachSNT = []; 
+            for (var i = 2; i < 100; i++) {
+                var laSoNguyenTo = true;
+                for (var j = 2; j*j < i; j++) {
+                    if (i % j === 0) {
+                        laSoNguyenTo = false;
+                        break;
+                    }
+                }
+                    if (laSoNguyenTo) {
+                        danhSachSNT.push(i);
+                    }
+            }
+        var chuoiKetQua = "Các số nguyên tố nhỏ hơn 100 là: \n" + danhSachSNT.join(', ');
+
+        alert(chuoiKetQua);
+
+        console.log(chuoiKetQua);
+        }
+        lietKeSoNguyenTo();
+    </script>
+</body>
+</html>
