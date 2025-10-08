@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Đảo ngược số</title>
+</head>
+<body>
+    <script>
+        function daoNguocSo(a) {
+            chuoiDaoNguoc = Math.abs(a).toString().split('').reverse().join('');
+            
+            return parseInt(chuoiDaoNguoc) * Math.sign(a);
+        }
+
+        var soCanDaoNguoc = 654321;
+        var ketQua = daoNguocSo(soCanDaoNguoc);
+        
+        console.log("Số ban đầu: " + soCanDaoNguoc);
+        console.log("Số đảo ngược: " + ketQua);
+
+        alert("Số " + soCanDaoNguoc + " sau khi đảo ngược là: " + ketQua);
+
+        document.write("<p>Số ban đầu: </p>" + soCanDaoNguoc);
+        document.write("<p>Số sau khi đảo ngược: </p>" + ketQua);
+    </script>
+</body>
+</html>
