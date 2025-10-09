@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Tính Can Chi</title>
+</head>
+<body>
+    <table border="1" style="border-collapse: collapse; 
+    border-color: rgb(0, 255, 242); 
+    text-align: center; 
+    width: 700px;">
+        <tr>
+            <td>
+                <p style="background-color: beige;">TÍNH CAN CHI CỦA NGÀY ÂM LỊCH</p>
+                <div style="background-color: rgb(139, 255, 249);">
+                    <p>
+                        Năm dương lịch
+                        <input type="text" id="yearInput">
+                        <button id="calculateBtn">---></button>
+                        Can chi năm âm lịch
+                        <input type="text" id="resultOutput" readonly>
+                    </p>
+                </div>
+            </td>
+        </tr>
+    </table>
+
+    <script>
+        const CANS = ["Canh", "Tân", "Nhâm", "Quý", "Giáp", "Ất", "Bính", "Đinh", "Mậu", "Kỷ"];
+        const CHIS = ["Thân", "Dậu", "Tuất", "Hợi", "Tý", "Sửu", "Dần", "Mão", "Thìn", "Tỵ", "Ngọ", "Mùi"];
+
+        const yearInput = document.getElementById("yearInput");
+        const calculateBtn = document.getElementById("calculateBtn");
+        const resultOutput = document.getElementById("resultOutput");
+
+        calculateBtn.addEventListener("click", () => {
+            const year = parseInt(yearInput.value);
+
+            if (isNaN(year) || year < 0) {
+                alert("Vui lòng nhập một năm dương lịch hợp lệ (là một số nguyên dương).");
+                resultOutput.value = "";
+                return;
+            }
+            const canIndex = (year + 6) % 10;
+            const chiIndex = (year + 8) % 12;
+
+            const can = CANS[canIndex];
+            const chi = CHIS[chiIndex];
+            const canChiResult = `${can} ${chi}`;
+
+            resultOutput.value = canChiResult;
+        });
+    </script>
+</body>
+</html>
