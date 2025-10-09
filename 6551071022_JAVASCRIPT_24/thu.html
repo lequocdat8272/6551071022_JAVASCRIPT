@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Thứ</title>
+</head>
+<body>
+    <table border="3" style="border-collapse: collapse; border-color: blue; background-color: pink;">
+        <tr>
+            <td>
+                Ngày <input id="ngay" type="number" style="width: 30px;"> 
+                Tháng Select: <input id="thang" type="number" style="width: 30px;"> 
+                Năm <input id="nam" type="number" style="width: 50px;">
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align: center;">
+                <button onclick="xuatThu()" style="border-radius: 10px;">Xuất thứ</button>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <span id="thu"></span> 
+                Ngày <span id="ngayHienThi"></span> 
+                tháng <span id="thangHienThi"></span> 
+                năm <span id="namHienThi"></span> 
+            </td>
+        </tr>
+    </table>
+    <script>
+    function xuatThu() {
+        const ngay = document.getElementById("ngay").value;
+        const thang = document.getElementById("thang").value;
+        const nam = document.getElementById("nam").value;
+
+        const dateObj = new Date(nam, thang - 1, ngay);
+
+        const tenThu = ["Chủ nhật", "Thứ 2", "Thứ 3", "Thứ 4", "Thứ 5", "Thứ 6", "Thứ 7"];
+
+        const soThu = dateObj.getDay();
+
+        document.getElementById("thu").innerText = tenThu[soThu];
+        document.getElementById("ngayHienThi").innerText = ngay;
+        document.getElementById("thangHienThi").innerText = thang;
+        document.getElementById("namHienThi").innerText = nam;
+    }
+    </script>
+</body>
+</html>
