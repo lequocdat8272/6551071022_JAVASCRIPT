@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Xóa Hàng Bảng</title>
+</head>
+<body>
+    <table id="myTable" border="1">
+        <thead>
+            <tr>
+                <th>Số lượng</th>
+                <th>Đơn giá</th>
+                <th>Tổng</th>
+                <th>Chức năng</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>2</td>
+                <td>1000000</td>
+                <td>2000000</td>
+                <td><button onclick="deleteRow(this)">Xóa</button></td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>500000</td>
+                <td>500000</td>
+                <td><button onclick="deleteRow(this)">Xóa</button></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+    function deleteRow(btn) {
+        var row = btn.parentNode.parentNode;
+
+        row.remove();
+    }
+    </script>
+</body>
+</html>
