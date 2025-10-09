@@ -30,3 +30,4 @@ changelog:
 9h25: Bài 22
 9h40: Bài 23
 10h05: Bài 24
+11h00: Bài 25
