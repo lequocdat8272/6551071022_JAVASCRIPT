@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Thực đơn</title>
+    <link rel="stylesheet" href="Styles/style.css">
+</head>
+<body>
+    <table border="2" class="table1">
+        <tr>
+            <td colspan="3">
+                <h1 class="header1">THỰC ĐƠN</h1>
+            </td>
+        </tr>
+        <tr class="tableh">
+            <th>Thức ăn</th>
+            <th>Nước uống</th>
+            <th class="tabled3">Thời điểm</th>
+        </tr>
+        <tr>
+            <td>
+                <select size="7" multiple id="doAn">
+                    <option value="bunBo">Bún bò</option>
+                    <option value="huTieu">Hủ tiếu</option>
+                    <option value="banhCanh">Bánh canh</option>
+                    <option value="phoBo">Phở bò</option>
+                    <option value="nuoi">Nuôi</option>
+                    <option value="banhMiThit">Bánh mì thịt</option>
+                    <option value="banhCuon">Bún bò</option>
+                </select>
+            </td>
+            <td>
+                <select size="7" multiple id="nuoc">
+                    <option value="caPheDa">Cà phê đá</option>
+                    <option value="caPheSuaDa">Cà phê sữa đá</option>
+                    <option value="chanhDay">Chanh dây</option>
+                    <option value="chanhMuoi">Chanh muối</option>
+                    <option value="xiMuoi">Xí muội</option>
+                    <option value="suaTuoi">Sữa tươi<i></i></option>
+                    <option value="camVat">Cam vắt</option>
+                </select>
+            </td>
+            <td class="tabled3">
+                <input type="radio" name="time" value="ngay">Ban Ngày <br>
+                <input type="radio" name="time" value="dem">Ban Đêm
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3" style="text-align: center;">
+                <button class="button1" id="cal">Tính tiền</button>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                <table border="2" class="table2">
+                    <tr class="tableh">
+                        <th>
+                            Các món đã dùng
+                        </th>
+                        <th>
+                            Tiền
+                        </th>
+                    </tr>
+                        <tbody id="result">
+                            </tbody>
+                    <tr style="font-weight: bold;">
+                        <td>Tổng tiền</td>
+                        <td id="tong"></td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+    <script>
+        const menuPrices = {
+            bunBo: 20000,
+            huTieu: 18000,
+            banhCanh: 17000,
+            phoBo: 19000,
+            nuoi: 15000,
+            banhMiThit: 12000,
+            banhCuon: 15000,
+
+            caPheDa: 12000,
+            caPheSuaDa: 15000,
+            chanhDay: 13000,
+            chanhMuoi: 12000,
+            xiMuoi: 14000,
+            suaTuoi: 13000,
+            camVat: 17000
+        };
+
+        document.getElementById('cal').addEventListener('click', calBill);
+
+        function calBill() {
+            const foodSelect = document.getElementById('doAn');
+            const drinkSelect = document.getElementById('nuoc');
+            const timeRadios = document.getElementsByName('time');
+            const resultBody = document.getElementById('result');
+            const totalElement = document.getElementById('tong');
+
+            resultBody.innerHTML = '';
+            var totalBill = 0;
+
+            const selectedFoods = Array.from(foodSelect.selectedOptions);
+            selectedFoods.forEach(option => {
+                const itemPrice = menuPrices[option.value];
+                totalBill += itemPrice;
+                addResultRow(option.text, itemPrice, resultBody);
+            });
+
+            const selectedDrinks = Array.from(drinkSelect.selectedOptions);
+            selectedDrinks.forEach(option => {
+                const itemPrice = menuPrices[option.value];
+                totalBill += itemPrice;
+                addResultRow(option.text, itemPrice, resultBody);
+            });
+
+            var isNight = false;
+            for (const radio of timeRadios) {
+                if (radio.checked && radio.value === 'dem') {
+                    isNight = true;
+                    break;
+                }
+            }
+
+            if (isNight) {
+                totalBill *= 1.1;
+            }
+            
+            totalElement.innerText = formatCurrency(totalBill);
+        }
+
+        function addResultRow(name, price, tableBody) {
+            const row = document.createElement('tr');
+            const nameCell = document.createElement('td');
+            const priceCell = document.createElement('td');
+
+            nameCell.innerText = name;
+            priceCell.innerText = formatCurrency(price);
+            
+            row.appendChild(nameCell);
+            row.appendChild(priceCell);
+            tableBody.appendChild(row);
+        }
+
+        function formatCurrency(number) {
+            return number.toLocaleString('vi-VN') + ' VNĐ';
+        }
+    </script>
+</body>
+</html>
