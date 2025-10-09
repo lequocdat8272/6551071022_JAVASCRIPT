@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Tính lương</title>
+</head>
+<body>
+    <table border="1" style="border-color: blue; background-color: yellow;">
+        <tr>
+            <td>Lương</td> <td><input id="luong"></td>
+        </tr>
+        <tr>
+            <td>Hệ số lương</td> <td><input type="number" id="heSo" style="width: 50px;"></td>
+        </tr>
+        <tr>
+            <td colspan="2" style="text-align: center;">
+                <button id="tinh" style="border-radius: 10px;">Tính lương tháng</button>
+            </td>
+        </tr>
+        <tr>
+            <td>Lương tháng</td> <td><span id="ketQua"></span></td>
+        </tr>
+    </table>
+
+    <script>
+        function tinh() {
+            const num1 = document.getElementById("luong").value;
+            const num2 = document.getElementById("heSo").value;
+
+            const result = parseFloat(num1) * parseFloat(num2);
+
+            document.getElementById("ketQua").innerText = result;
+        }
+        document.getElementById("tinh").addEventListener("click", tinh);
+    </script>
+</body>
+</html>
